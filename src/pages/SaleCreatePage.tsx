@@ -21,7 +21,7 @@ export default function SaleCreatePage() {
   useEffect(() => {
     if (!id) {
       const createAndRedirect = async () => {
-        const res = await axios.post("http://localhost:3000/sales/create");
+        const res = await axios.post("${API_URL}/sales/create");
         navigate(`/sales/create/${res.data.id}`, { replace: true });
       };
 
@@ -34,7 +34,7 @@ export default function SaleCreatePage() {
   // ============================
   const loadBill = async () => {
     if (!id) return;
-    const res = await axios.get(`http://localhost:3000/sales/${id}`);
+    const res = await axios.get(`${API_URL}/sales/${id}`);
     setBill(res.data);
   };
 
@@ -49,7 +49,7 @@ export default function SaleCreatePage() {
   useEffect(() => {
     if (!id) return;
 
-    axios.post(`http://localhost:3000/sales/${id}/start-sell`);
+    axios.post(`${API_URL}/sales/${id}/start-sell`);
     loadBill();
 
     const client = mqtt.connect(
@@ -81,14 +81,14 @@ export default function SaleCreatePage() {
     });
 
     return () => {
-      axios.post("http://localhost:3000/sales/stop-sell");
+      axios.post("${API_URL}/sales/stop-sell");
       client.end();
     };
   }, [id]);
 
   const handleCheckout = async () => {
-    await axios.post(`http://localhost:3000/sales/${id}/checkout`);
-    await axios.post("http://localhost:3000/sales/stop-sell");
+    await axios.post(`${API_URL}/sales/${id}/checkout`);
+    await axios.post("${API_URL}/sales/stop-sell");
     navigate("/sales");
   };
 

@@ -45,7 +45,7 @@ export default function RfidScanPage() {
 
   // Load PO data
   const loadPo = () => {
-    fetch(`http://localhost:3000/scanrfid/${poId}`)
+    fetch(`${API_URL}/scanrfid/${poId}`)
       .then((res) => res.json())
       .then(setPo)
       .catch(console.error);
@@ -93,14 +93,14 @@ export default function RfidScanPage() {
 
     setLoadingItemId(itemId);
 
-    await fetch(`http://localhost:3000/scanrfid/${poId}/start/${itemId}`, {
+    await fetch(`${API_URL}/scanrfid/${poId}/start/${itemId}`, {
       method: "POST",
     });
   };
 
   // Dừng quét RFID
   const handleStop = async () => {
-    await fetch(`http://localhost:3000/scanrfid/${poId}/stop`, {
+    await fetch(`${API_URL}/scanrfid/${poId}/stop`, {
       method: "POST",
     });
 

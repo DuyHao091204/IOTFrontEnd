@@ -68,7 +68,7 @@ export default function RfidHistoryPage() {
   // Load dữ liệu
   // ==========================================
   useEffect(() => {
-    fetch("http://localhost:3000/rfid-events/history")
+    fetch("${API_URL}/rfid-events/history")
       .then((res) => res.json())
       .then((data) => {
         setRows(data ?? []);

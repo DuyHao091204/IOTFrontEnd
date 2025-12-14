@@ -27,7 +27,7 @@ export default function SaleDetailPage() {
   const [receipt, setReceipt] = useState<Receipt | null>(null);
 
   const loadDetail = async () => {
-    const res = await axios.get(`http://localhost:3000/sales/${id}`);
+    const res = await axios.get(`${API_URL}/sales/${id}`);
     setReceipt(res.data);
   };
 

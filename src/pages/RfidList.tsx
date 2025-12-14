@@ -14,7 +14,7 @@ export default function RfidList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/scanrfid")
+    fetch("${API_URL}/scanrfid")
       .then((res) => {
         if (!res.ok) throw new Error("API error");
         return res.json();

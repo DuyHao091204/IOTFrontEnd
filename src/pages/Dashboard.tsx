@@ -26,19 +26,20 @@ export default function Dashboard() {
 
   useEffect(() => {
     // fetch doanh thu
-    fetch("http://localhost:3000/dashboard/stats")
+    //fetch("${API_URL}/dashboard/stats")
+    fetch("${API_URL}/dashboard/stats")
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch(console.error);
 
     // fetch sản phẩm bán chạy
-    fetch("http://localhost:3000/dashboard/top-products")
+    fetch("${API_URL}/dashboard/top-products")
       .then((res) => res.json())
       .then((data) => setTopProducts(data))
       .catch(console.error);
 
     // fetch đơn chờ quét RFID
-    fetch("http://localhost:3000/scanrfid")
+    fetch("${API_URL}/scanrfid")
       .then((res) => res.json())
       .then((data) => {
         // Lọc đúng chuẩn theo tiến độ RFID

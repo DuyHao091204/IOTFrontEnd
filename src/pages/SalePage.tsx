@@ -19,12 +19,12 @@ export default function SalePage() {
   }, []);
 
   const loadSales = async () => {
-    const res = await axios.get("http://localhost:3000/sales");
+    const res = await axios.get("${API_URL}/sales");
     setSales(res.data);
   };
 
   const handleCreate = async () => {
-    const res = await axios.post("http://localhost:3000/sales/create");
+    const res = await axios.post("${API_URL}/sales/create");
     navigate(`/sales/create/${res.data.id}`);
   };
 
