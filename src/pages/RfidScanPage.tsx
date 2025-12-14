@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import mqtt from "mqtt";
+import { API_URL } from "../config";
 
 // Kết nối MQTT
 const client = mqtt.connect(

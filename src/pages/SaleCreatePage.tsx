@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import mqtt from "mqtt";
 import type { Bill } from "../types/sale";
+src / pages / SaleCreatePage.tsx;
 
 export default function SaleCreatePage() {
   const { id } = useParams();
