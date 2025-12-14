@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config";
 
 interface Receipt {
   id: number;
@@ -24,7 +25,7 @@ export default function SalePage() {
   };
 
   const handleCreate = async () => {
-    const res = await axios.post("${API_URL}/sales/create");
+    const res = await axios.post(`${API_URL}/sales/create`);
     navigate(`/sales/create/${res.data.id}`);
   };
 
