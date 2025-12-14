@@ -1,7 +1,11 @@
 import axios from "axios";
+import { API_URL } from "../config";
+// export const api = axios.create({
+//   baseURL: "${API_URL}", //  backend URL của bạn
+// });
 
 export const api = axios.create({
-  baseURL: "${API_URL}", //  backend URL của bạn
+  baseURL: API_URL,
 });
 
 import type { InternalAxiosRequestConfig } from "axios";
